@@ -1,0 +1,9 @@
+<GridLayout class="slider-container" rows="auto, auto" columns="auto, auto, *, auto">
+  <Image class="reset-button-image" src="~/assets/images/reset.png" (tap)="resetScrubberPositionTap()" col="0"></Image>
+  <Label class="slider-label" [text]="title" col="1"></Label>
+  <Label class="slider-label" #valueLabel col="3"></Label>
+  <AbsoluteLayout class="slider-bar-container" #sliderContainer row="1" colSpan="4">
+    <Image class="slide-bg" src="~/assets/images/bg_steps.png" stretch="fill"></Image>
+    <Image class="slider-button" #sliderButton src="~/assets/images/scrubber.png"></Image>
+  </AbsoluteLayout>
+</GridLayout>

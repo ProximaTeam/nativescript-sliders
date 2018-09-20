@@ -1,0 +1,7 @@
+<FlexboxLayout width="100%" justifyContent="space-between">
+  <Label class="toggle-button"
+         [class.toggle-button-active]="selectedButtonType === button.type"
+         (tap)="onButtonTap(button.type)"
+         *ngFor="let button of buttons"
+         [text]="button.label"></Label>
+</FlexboxLayout>

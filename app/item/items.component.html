@@ -1,0 +1,39 @@
+<ScrollView class="page dashboard-page">
+  <StackLayout>
+
+    <WrapLayout horizontalAlignment="center">
+      <Label class="gel-button" *ngFor="let gel of gelList" [style.background-color]="gel.color" textWrap="true">
+        <FormattedString>
+          <Span [text]="gel.label"></Span>
+          <Span [text]="'\n'+gel.name"></Span>
+        </FormattedString>
+      </Label>
+    </WrapLayout>
+
+    <StackLayout class="section-container">
+      <ns-toggle-menu [selectedButtonType]="selectedColorType"
+                      [buttons]="colorButtons"
+                      (buttonSelect)="onColorButtonSelect($event)"></ns-toggle-menu>
+    </StackLayout>
+
+    <StackLayout ns-slider
+                 class="section-container"
+                 title="Color Temp"
+                 [minValue]="2800"
+                 [maxValue]="10000"
+                 [startValue]="3200"
+                 (valueUpdated)="onColorTempSliderValueUpdated($event)"
+                 unit="K"></StackLayout>
+    <StackLayout ns-slider class="section-container" title="Red" maxValue="100" startValue="100"></StackLayout>
+    <StackLayout ns-slider class="section-container" title="Green" maxValue="100" startValue="100"></StackLayout>
+    <StackLayout ns-slider class="section-container" title="Blue" maxValue="100" startValue="100"></StackLayout>
+
+    <StackLayout class="section-container">
+      <Label class="section-label" text="Fan"></Label>
+      <ns-toggle-menu [selectedButtonType]="selectedFanType"
+                      [buttons]="fanButtons"
+                      (buttonSelect)="onFanButtonSelect($event)"></ns-toggle-menu>
+    </StackLayout>
+
+  </StackLayout>
+</ScrollView>
